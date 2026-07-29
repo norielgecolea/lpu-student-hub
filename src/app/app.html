@@ -1,0 +1,84 @@
+<div class="relative min-h-screen overflow-hidden bg-slate-100 text-black">
+  <img
+    src="/assets/lpu-building.png"
+    alt="LPU building background"
+    class="absolute inset-0 h-full w-full object-cover opacity-20"
+  />
+
+  <div class="absolute inset-0 bg-gradient-to-b from-white/45 via-white/35 to-white/50"></div>
+  <div class="absolute -left-24 top-10 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl"></div>
+  <div class="absolute -right-20 bottom-8 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl"></div>
+
+  <main class="relative mx-auto flex min-h-screen w-full max-w-5xl items-center px-5 py-10 pb-20 md:px-8">
+    <section class="w-full space-y-7">
+      <header class="space-y-3 text-center">
+        <div class="flex justify-center">
+          <img src="/assets/lpu-logo.png" alt="LPU Logo" class="h-28 w-28 md:h-32 md:w-32" />
+        </div>
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-black">
+          LYCEUM OF THE PHILIPPINES UNIVERSITY LAGUNA
+        </p>
+        <h1 class="text-3xl font-bold text-black md:text-5xl">
+          Learner's Hub
+        </h1>
+        <p class="mx-auto max-w-2xl text-sm text-black md:text-base">
+          Access your essential student services.
+        </p>
+      </header>
+
+      <aside class="rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-xl md:p-8">
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
+          @for (link of links; track link.name) {
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex min-h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60"
+            >
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105">
+                @switch (link.name) {
+                  @case ('LMS') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
+                      <path d="M8 8h8M8 12h8M8 16h5" />
+                    </svg>
+                  }
+                  @case ('MIS Helpdesk') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M12 19v-2.5M7 11v3a2 2 0 0 0 2 2h1.5M17 11v3a2 2 0 0 1-2 2h-1.5" />
+                      <path d="M5 10a7 7 0 0 1 14 0v3.5A1.5 1.5 0 0 1 17.5 15H17v-4h2M7 11v4h-.5A1.5 1.5 0 0 1 5 13.5z" />
+                    </svg>
+                  }
+                  @case ('Office 365') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-orange-500" fill="currentColor">
+                      <path d="M3 4.5 10.5 3v18L3 19.5zM12.5 4.2 20.5 6v12l-8 1.8z" />
+                    </svg>
+                  }
+                  @case ('Student Portal') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-indigo-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
+                      <path d="M8.5 10a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0-7 0Zm-1.5 8c1.2-2.2 3.1-3.3 5-3.3s3.8 1.1 5 3.3" />
+                    </svg>
+                  }
+                  @case ('Reservation') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-rose-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="4" y="5.5" width="16" height="14" rx="2.5" />
+                      <path d="M8 3.5v4M16 3.5v4M4 10.5h16M8 14h3M13 14h3M8 17h3" />
+                    </svg>
+                  }
+                }
+              </div>
+
+              <p class="text-sm font-semibold text-black md:text-base">{{ link.name }}</p>
+
+            </a>
+          }
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <p class="absolute bottom-4 left-0 right-0 px-4 text-center text-sm text-black">
+    © 2026 LPU - Laguna. Developed by MIS Department. All Rights Reserved.
+  </p>
+</div>
