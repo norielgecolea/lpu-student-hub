@@ -7,6 +7,10 @@ body {
 
 body {
   margin: 0;
-  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f1f5f9;
+}
+
+.font-university {
+  font-family: "ZapfHumnst BT", "Zapf Humanist BT", "Humanist 521", Optima, Verdana, sans-serif;
 }
