@@ -14,3 +14,23 @@ body {
 .font-university {
   font-family: "ZapfHumnst BT", "Zapf Humanist BT", "Humanist 521", Optima, Verdana, sans-serif;
 }
+
+@keyframes halo-drift {
+  0% {
+    transform: translate3d(-50%, -4%, 0) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-46%, 4%, 0) scale(1.06);
+    filter: hue-rotate(18deg);
+  }
+  100% {
+    transform: translate3d(-50%, -4%, 0) scale(1);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.animated-halo {
+  animation: halo-drift 14s ease-in-out infinite;
+  will-change: transform, filter;
+}
