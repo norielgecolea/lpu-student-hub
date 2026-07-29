@@ -37,18 +37,19 @@
             >
               <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105">
                 @switch (link.name) {
+                   @case ('MIS Helpdesk') {
+                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M12 19v-2.5M7 11v3a2 2 0 0 0 2 2h1.5M17 11v3a2 2 0 0 1-2 2h-1.5" />
+                      <path d="M5 10a7 7 0 0 1 14 0v3.5A1.5 1.5 0 0 1 17.5 15H17v-4h2M7 11v4h-.5A1.5 1.5 0 0 1 5 13.5z" />
+                    </svg>
+                  }
                   @case ('LMS') {
                     <svg viewBox="0 0 24 24" class="h-9 w-9 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
                       <path d="M8 8h8M8 12h8M8 16h5" />
                     </svg>
                   }
-                  @case ('MIS Helpdesk') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <path d="M12 19v-2.5M7 11v3a2 2 0 0 0 2 2h1.5M17 11v3a2 2 0 0 1-2 2h-1.5" />
-                      <path d="M5 10a7 7 0 0 1 14 0v3.5A1.5 1.5 0 0 1 17.5 15H17v-4h2M7 11v4h-.5A1.5 1.5 0 0 1 5 13.5z" />
-                    </svg>
-                  }
+                 
                   @case ('Office 365') {
                     <svg viewBox="0 0 24 24" class="h-9 w-9 text-orange-500" fill="currentColor">
                       <path d="M3 4.5 10.5 3v18L3 19.5zM12.5 4.2 20.5 6v12l-8 1.8z" />
