@@ -1,4 +1,4 @@
-<div class="relative min-h-screen overflow-hidden bg-slate-100 text-black">
+<div class="relative flex h-dvh max-h-dvh flex-col overflow-hidden bg-slate-100 text-black">
   <img
     src="assets/lpu-building.png"
     alt="LPU building background"
@@ -10,66 +10,80 @@
   <div class="absolute -left-24 top-10 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl"></div>
   <div class="absolute -right-20 bottom-8 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl"></div>
 
-  <main class="relative mx-auto flex min-h-screen w-full max-w-5xl items-center px-5 py-10 pb-20 md:px-8">
-    <section class="w-full space-y-7">
-      <header class="space-y-3 text-center">
-        <div class="flex justify-center">
-          <img src="assets/lpu-logo.png" alt="LPU Logo" class="h-28 w-28 md:h-32 md:w-32" />
+  <main class="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col items-center justify-center px-6 py-5 xl:px-10 xl:py-6">
+    <section class="flex w-full flex-col items-center space-y-5 xl:space-y-6">
+      <header class="hero-header flex w-full flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-6 xl:gap-8">
+        <div class="hero-logo shrink-0">
+          <img
+            src="assets/lpu-logo.png"
+            alt="LPU Logo"
+            class="h-28 w-auto object-contain drop-shadow-md sm:h-32 lg:h-40 xl:h-44"
+          />
         </div>
-        <p class="font-university text-xs font-semibold uppercase tracking-[0.25em] text-black">
-          LYCEUM OF THE PHILIPPINES UNIVERSITY LAGUNA
-        </p>
-        <h1 class="text-3xl font-bold text-black md:text-5xl">
-          Learner's Hub
-        </h1>
-        <p class="mx-auto max-w-2xl text-sm text-black md:text-base">
-          Access your essential student services.
-        </p>
+
+        <div class="hero-copy min-w-0 space-y-2 text-center sm:space-y-2.5">
+          <p class="font-university text-sm font-semibold uppercase tracking-[0.35em] text-red-700/80 md:text-base">
+            Welcome to
+          </p>
+          <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl xl:text-6xl">
+            Learner's Hub
+          </h1>
+          <div class="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-red-700 via-amber-500 to-red-700"></div>
+          <p class="mx-auto max-w-lg text-sm leading-relaxed text-slate-700 md:text-base">
+            Access your essential student services in one place.
+          </p>
+        </div>
       </header>
 
-      <aside class="rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-xl md:p-8">
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
+      <aside class="mx-auto w-full max-w-3xl rounded-3xl border border-slate-200 bg-white/80 p-4 shadow-xl xl:max-w-4xl xl:p-6">
+        <div class="mx-auto flex w-full max-w-[21.5rem] flex-wrap justify-center gap-3 sm:max-w-[32.25rem] lg:max-w-[46.25rem] xl:max-w-[51rem] xl:gap-4">
           @for (link of links; track link.name) {
             <a
-              [href]="link.url"
+              [attr.href]="link.name === 'Internet Access' && isInternetDisabled() ? null : link.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex min-h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60"
+              [attr.aria-disabled]="link.name === 'Internet Access' && isInternetDisabled()"
+              [title]="link.name === 'Internet Access' && internetReachable() === false ? 'Only available on the LPU network' : link.description"
+              (click)="onLinkClick($event, link)"
+              class="group flex min-h-28 w-[calc((100%-0.75rem)/2)] max-w-40 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60 sm:w-40 sm:max-w-none lg:min-h-32 lg:w-44 xl:min-h-36 xl:w-48 xl:gap-3 xl:p-4"
+              [class.pointer-events-none]="link.name === 'Internet Access' && isInternetDisabled()"
+              [class.cursor-not-allowed]="link.name === 'Internet Access' && isInternetDisabled()"
+              [class.opacity-40]="link.name === 'Internet Access' && isInternetDisabled()"
+              [class.grayscale]="link.name === 'Internet Access' && isInternetDisabled()"
             >
-              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105 xl:h-14 xl:w-14">
                 @switch (link.name) {
                   @case ('MIS Helpdesk') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-emerald-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M12 19v-2.5M7 11v3a2 2 0 0 0 2 2h1.5M17 11v3a2 2 0 0 1-2 2h-1.5" />
                       <path d="M5 10a7 7 0 0 1 14 0v3.5A1.5 1.5 0 0 1 17.5 15H17v-4h2M7 11v4h-.5A1.5 1.5 0 0 1 5 13.5z" />
                     </svg>
                   }
                   @case ('LMS') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-blue-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
                       <path d="M8 8h8M8 12h8M8 16h5" />
                     </svg>
                   }
-                 
                   @case ('Office 365') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-orange-500" fill="currentColor">
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-orange-500 xl:h-9 xl:w-9" fill="currentColor">
                       <path d="M3 4.5 10.5 3v18L3 19.5zM12.5 4.2 20.5 6v12l-8 1.8z" />
                     </svg>
                   }
                   @case ('Student Portal') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-indigo-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-indigo-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
                       <path d="M8.5 10a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0-7 0Zm-1.5 8c1.2-2.2 3.1-3.3 5-3.3s3.8 1.1 5 3.3" />
                     </svg>
                   }
-                  @case ('Reservation') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-rose-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                  @case ('Reservation System') {
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-rose-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <rect x="4" y="5.5" width="16" height="14" rx="2.5" />
                       <path d="M8 3.5v4M16 3.5v4M4 10.5h16M8 14h3M13 14h3M8 17h3" />
                     </svg>
                   }
-                  @case ('Internet') {
-                    <svg viewBox="0 0 24 24" class="h-9 w-9 text-teal-600" fill="none" stroke="currentColor" stroke-width="1.8">
+                  @case ('Internet Access') {
+                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-teal-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <circle cx="12" cy="12" r="9" />
                       <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9M3 12h18" />
                     </svg>
@@ -77,8 +91,14 @@
                 }
               </div>
 
-              <p class="text-sm font-semibold text-black md:text-base">{{ link.name }}</p>
-
+              <div class="space-y-0.5">
+                <p class="text-xs font-semibold text-black sm:text-sm md:text-base">{{ link.name }}</p>
+                @if (link.name === 'Internet Access') {
+                  <p class="text-[10px] font-medium text-slate-500">
+                    {{ internetReachable() === null ? 'Checking…' : 'LPU network only' }}
+                  </p>
+                }
+              </div>
             </a>
           }
         </div>
@@ -86,7 +106,7 @@
     </section>
   </main>
 
-  <p class="absolute bottom-4 left-0 right-0 px-4 text-center text-sm text-black">
+  <p class="relative z-10 shrink-0 px-4 pb-3 pt-1 text-center text-xs text-black sm:text-sm">
     © 2026 LPU - Laguna. Developed by MIS Department. All Rights Reserved.
   </p>
 </div>

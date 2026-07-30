@@ -1,0 +1,52 @@
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-header .hero-logo {
+  animation: hero-slide 0.7s ease-out both;
+}
+
+.hero-header .hero-copy > * {
+  animation: hero-rise 0.55s ease-out both;
+}
+
+.hero-header .hero-copy > :nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.hero-header .hero-copy > :nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-header .hero-copy > :nth-child(3) {
+  animation-delay: 0.28s;
+}
+
+.hero-header .hero-copy > :nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-header .hero-logo,
+  .hero-header .hero-copy > * {
+    animation: none;
+  }
+}
