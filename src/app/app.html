@@ -35,8 +35,8 @@
         </div>
       </header>
 
-      <aside class="mx-auto w-full max-w-3xl rounded-3xl border border-slate-200 bg-white/80 p-4 shadow-xl xl:max-w-4xl xl:p-6">
-        <div class="mx-auto flex w-full max-w-[21.5rem] flex-wrap justify-center gap-3 sm:max-w-[32.25rem] lg:max-w-[46.25rem] xl:max-w-[51rem] xl:gap-4">
+      <aside class="mx-auto w-full max-w-5xl rounded-3xl border border-slate-200 bg-white/80 p-4 shadow-xl xl:max-w-6xl xl:p-6">
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 xl:gap-4">
           @for (link of links; track link.name) {
             <a
               [attr.href]="link.name === 'Internet Access' && isInternetDisabled() ? null : link.url"
@@ -45,7 +45,7 @@
               [attr.aria-disabled]="link.name === 'Internet Access' && isInternetDisabled()"
               [title]="link.name === 'Internet Access' && internetReachable() === false ? 'Only available on the LPU network' : link.description"
               (click)="onLinkClick($event, link)"
-              class="group flex min-h-28 w-[calc((100%-0.75rem)/2)] max-w-40 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60 sm:w-40 sm:max-w-none lg:min-h-32 lg:w-44 xl:min-h-36 xl:w-48 xl:gap-3 xl:p-4"
+              class="group flex min-h-28 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60 lg:min-h-32 xl:min-h-36 xl:gap-3 xl:p-4"
               [class.pointer-events-none]="link.name === 'Internet Access' && isInternetDisabled()"
               [class.cursor-not-allowed]="link.name === 'Internet Access' && isInternetDisabled()"
               [class.opacity-40]="link.name === 'Internet Access' && isInternetDisabled()"
