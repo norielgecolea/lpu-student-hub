@@ -23,6 +23,7 @@ export class App implements OnInit {
     { name: 'MIS Helpdesk', url: 'https://lpul-mis.on.spiceworks.com/portal/registrations', description: 'Support and concerns' },
     { name: 'LMS', url: 'https://lms.lpulaguna.edu.ph', description: 'Learning Management System' },
     { name: 'Office 365', url: 'https://office.com', description: 'Email and productivity tools' },
+    { name: 'Outlook', url: 'https://outlook.office.com/', description: 'Email and calendar' },
     { name: 'Student Portal', url: 'https://students.lpulaguna.edu.ph/Student/Login.php', description: 'Grades, records, and profile' },
     { name: 'Reservation System', url: 'https://reservation.lpulaguna.com', description: 'Book rooms and facilities' },
     { name: 'Internet Access', url: 'http://web.lpu-laguna.edu.ph:8090', description: 'LPU Captive Portal' }
