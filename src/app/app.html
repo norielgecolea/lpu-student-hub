@@ -1,4 +1,4 @@
-<div class="relative flex h-dvh max-h-dvh flex-col overflow-hidden bg-slate-100 text-black">
+<div class="relative flex min-h-dvh flex-col overflow-x-hidden bg-slate-100 text-black sm:h-dvh sm:max-h-dvh sm:overflow-hidden">
   <img
     src="assets/lpu-building.png"
     alt="LPU building background"
@@ -10,34 +10,34 @@
   <div class="absolute -left-24 top-10 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl"></div>
   <div class="absolute -right-20 bottom-8 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl"></div>
 
-  <main class="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col items-center justify-center px-6 py-5 xl:px-10 xl:py-6">
-    <section class="flex w-full flex-col items-center space-y-5 xl:space-y-6">
-      <header class="hero-header flex w-full flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-6 xl:gap-8">
+  <main class="relative mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 py-4 sm:px-6 sm:py-5 xl:px-10 xl:py-6">
+    <section class="flex w-full flex-col items-center space-y-4 sm:space-y-5 xl:space-y-6">
+      <header class="hero-header flex w-full flex-col items-center justify-center gap-3 text-center sm:flex-row sm:gap-6 xl:gap-8">
         <div class="hero-logo shrink-0">
           <img
             src="assets/lpu-logo.png"
             alt="LPU Logo"
-            class="h-28 w-auto object-contain drop-shadow-md sm:h-32 lg:h-40 xl:h-44"
+            class="h-20 w-auto object-contain drop-shadow-md sm:h-32 lg:h-40 xl:h-44"
           />
         </div>
 
-        <div class="hero-copy min-w-0 space-y-2 text-center sm:space-y-2.5">
-          <p class="font-university text-sm font-semibold uppercase tracking-[0.35em] text-red-700/80 md:text-base">
+        <div class="hero-copy min-w-0 space-y-1.5 text-center sm:space-y-2.5">
+          <p class="font-university text-xs font-semibold uppercase tracking-[0.28em] text-red-700/80 sm:text-sm sm:tracking-[0.35em] md:text-base">
             Welcome to
           </p>
-          <h1 class="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl xl:text-6xl">
+          <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl xl:text-6xl">
             Learner's Hub
           </h1>
-          <div class="mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-red-700 via-amber-500 to-red-700"></div>
-          <p class="mx-auto max-w-lg text-sm leading-relaxed text-slate-700 md:text-base">
+          <div class="mx-auto h-1 w-14 rounded-full bg-gradient-to-r from-red-700 via-amber-500 to-red-700 sm:w-16"></div>
+          <p class="mx-auto max-w-xs text-xs leading-relaxed text-slate-700 sm:max-w-lg sm:text-sm md:text-base">
             Access your essential student services in one place.
           </p>
         </div>
       </header>
 
-      <aside class="mx-auto w-auto max-w-5xl rounded-3xl border border-slate-200 bg-white/80 p-4 shadow-xl xl:max-w-6xl xl:p-6">
-        <!-- width = 4 cards + 3 gaps, auto-tracks card size -->
-        <div class="mx-auto flex flex-wrap justify-center gap-3 [width:calc(4*10rem+3*0.75rem)] lg:[width:calc(4*11rem+3*0.75rem)] xl:gap-4 xl:[width:calc(4*12rem+3*1rem)]">
+      <aside class="mx-auto w-full rounded-3xl border border-slate-200 bg-white/80 p-3 shadow-xl sm:w-auto sm:max-w-5xl sm:p-4 xl:max-w-6xl xl:p-6">
+        <!-- mobile: 2-col fluid grid | sm+: original 4 × 2 desktop layout -->
+        <div class="mx-auto grid w-full grid-cols-2 gap-2.5 sm:flex sm:w-[calc(4*10rem+3*0.75rem)] sm:flex-wrap sm:justify-center sm:gap-3 lg:w-[calc(4*11rem+3*0.75rem)] xl:gap-4 xl:w-[calc(4*12rem+3*1rem)]">
           @for (link of links; track link.name) {
             <a
               [attr.href]="link.name === 'Internet Access' && isInternetDisabled() ? null : link.url"
@@ -46,54 +46,54 @@
               [attr.aria-disabled]="link.name === 'Internet Access' && isInternetDisabled()"
               [title]="link.name === 'Internet Access' && internetReachable() === false ? 'Only available on the LPU network' : link.description"
               (click)="onLinkClick($event, link)"
-              class="group flex aspect-square w-40 flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-3 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60 lg:w-44 xl:w-48 xl:gap-3 xl:p-4"
+              class="group flex aspect-square w-full flex-col items-center justify-center gap-1.5 rounded-2xl border border-slate-200 bg-white p-2.5 text-center transition duration-200 hover:-translate-y-1 hover:border-red-500 hover:bg-red-50 hover:shadow-lg hover:shadow-red-400/60 sm:w-40 sm:gap-2 sm:p-3 lg:w-44 xl:w-48 xl:gap-3 xl:p-4"
               [class.pointer-events-none]="link.name === 'Internet Access' && isInternetDisabled()"
               [class.cursor-not-allowed]="link.name === 'Internet Access' && isInternetDisabled()"
               [class.opacity-40]="link.name === 'Internet Access' && isInternetDisabled()"
               [class.grayscale]="link.name === 'Internet Access' && isInternetDisabled()"
             >
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105 xl:h-14 xl:w-14">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition group-hover:scale-105 sm:h-12 sm:w-12 xl:h-14 xl:w-14">
                 @switch (link.name) {
                   @case ('MIS Helpdesk') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-emerald-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-emerald-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M12 19v-2.5M7 11v3a2 2 0 0 0 2 2h1.5M17 11v3a2 2 0 0 1-2 2h-1.5" />
                       <path d="M5 10a7 7 0 0 1 14 0v3.5A1.5 1.5 0 0 1 17.5 15H17v-4h2M7 11v4h-.5A1.5 1.5 0 0 1 5 13.5z" />
                     </svg>
                   }
                   @case ('LMS') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-blue-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-blue-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
                       <path d="M8 8h8M8 12h8M8 16h5" />
                     </svg>
                   }
                   @case ('Office 365') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-orange-500 xl:h-9 xl:w-9" fill="currentColor">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-orange-500 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="currentColor">
                       <path d="M3 4.5 10.5 3v18L3 19.5zM12.5 4.2 20.5 6v12l-8 1.8z" />
                     </svg>
                   }
                   @case ('Outlook') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-sky-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-sky-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <rect x="3.5" y="5" width="17" height="14" rx="2" />
                       <path d="m4 7 8 6 8-6" />
                     </svg>
                   }
                   @case ('MS Teams') {
-                    <img src="assets/teams-logo.png" alt="MS Teams Logo" class="h-9 w-9 object-contain xl:h-10 xl:w-10" />
+                    <img src="assets/teams-logo.png" alt="MS Teams Logo" class="h-7 w-7 object-contain sm:h-9 sm:w-9 xl:h-10 xl:w-10" />
                   }
                   @case ('Student Portal') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-indigo-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-indigo-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z" />
                       <path d="M8.5 10a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0-7 0Zm-1.5 8c1.2-2.2 3.1-3.3 5-3.3s3.8 1.1 5 3.3" />
                     </svg>
                   }
                   @case ('Reservation System') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-rose-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-rose-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <rect x="4" y="5.5" width="16" height="14" rx="2.5" />
                       <path d="M8 3.5v4M16 3.5v4M4 10.5h16M8 14h3M13 14h3M8 17h3" />
                     </svg>
                   }
                   @case ('Internet Access') {
-                    <svg viewBox="0 0 24 24" class="h-8 w-8 text-teal-600 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6 text-teal-600 sm:h-8 sm:w-8 xl:h-9 xl:w-9" fill="none" stroke="currentColor" stroke-width="1.8">
                       <circle cx="12" cy="12" r="9" />
                       <path d="M12 3c-2.5 3-4 5.7-4 9s1.5 6 4 9M12 3c2.5 3 4 5.7 4 9s-1.5 6-4 9M3 12h18" />
                     </svg>
@@ -101,13 +101,13 @@
                 }
               </div>
 
-              <div class="space-y-0.5">
-                <p class="text-xs font-semibold text-black sm:text-sm md:text-base">{{ link.name }}</p>
+              <div class="space-y-0.5 px-0.5">
+                <p class="text-[11px] font-semibold leading-tight text-black sm:text-sm md:text-base">{{ link.name }}</p>
                 @if (link.name === 'Outlook') {
-                  <p class="text-[10px] font-medium text-slate-500">Institutional Email</p>
+                  <p class="text-[9px] font-medium text-slate-500 sm:text-[10px]">Institutional Email</p>
                 }
                 @if (link.name === 'Internet Access') {
-                  <p class="text-[10px] font-medium text-slate-500">
+                  <p class="text-[9px] font-medium text-slate-500 sm:text-[10px]">
                     {{ internetReachable() === null ? 'Checking…' : 'LPU network only' }}
                   </p>
                 }
