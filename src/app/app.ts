@@ -26,7 +26,7 @@ export class App implements OnInit {
     { name: 'Outlook', url: 'https://outlook.office.com/', description: 'Email and calendar' },
     { name: 'MS Teams', url: 'https://teams.microsoft.com/', description: 'Meetings and collaboration' },
     { name: 'Student Portal', url: 'https://students.lpulaguna.edu.ph/Student/Login.php', description: 'Grades, records, and profile' },
-    { name: 'Reservation System', url: 'https://reservation.lpulaguna.com', description: 'Book rooms and facilities' },
+    { name: 'Reservation System', url: 'https://learnerreservation.lpulaguna.com', description: 'Book rooms and facilities' },
     { name: 'Internet Access', url: 'http://web.lpu-laguna.edu.ph:8090', description: 'LPU Captive Portal' }
   ];
 
